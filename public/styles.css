@@ -1,0 +1,139 @@
+:root {
+  --bg-1: #09111f;
+  --bg-2: #1f2f46;
+  --panel: rgba(6, 13, 24, 0.8);
+  --text: #f2f4f8;
+  --accent: #f4c95d;
+  --muted: #a7b6cc;
+  --line: rgba(244, 201, 93, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Manrope', sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(244, 201, 93, 0.15), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(120, 173, 255, 0.2), transparent 35%),
+    linear-gradient(140deg, var(--bg-1), var(--bg-2));
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+.sidebar,
+.detail {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  backdrop-filter: blur(4px);
+}
+
+.sidebar {
+  padding: 18px;
+  max-height: calc(100vh - 40px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+h2 {
+  font-family: 'Cinzel', serif;
+  margin: 0;
+}
+
+.subtitle {
+  color: var(--muted);
+  margin-top: 6px;
+  margin-bottom: 12px;
+}
+
+#searchInput {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+#nameList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+}
+
+#nameList li {
+  padding: 10px 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+#nameList li:hover,
+#nameList li.active {
+  background: rgba(244, 201, 93, 0.12);
+  transform: translateX(4px);
+}
+
+.detail {
+  padding: 24px;
+  animation: fadeIn 0.6s ease;
+}
+
+.detail-header {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+button {
+  border: 1px solid var(--line);
+  background: rgba(244, 201, 93, 0.12);
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: rgba(244, 201, 93, 0.3);
+}
+
+.detail p {
+  margin: 10px 0;
+  font-size: 1.03rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 960px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    max-height: 45vh;
+  }
+}
