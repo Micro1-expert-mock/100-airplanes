@@ -7,7 +7,6 @@ class Airplane {
     status,
     country,
     rangeKm,
-    maxPassengersEfficiency
   }) {
     this.modelName = modelName;
     this.manufacturer = manufacturer;
@@ -16,7 +15,6 @@ class Airplane {
     this.status = status;
     this.country = country;
     this.rangeKm = rangeKm;
-    this.maxPassengersEfficiency = maxPassengersEfficiency;
   }
 
   toView() {
@@ -28,7 +26,6 @@ class Airplane {
       currentState: this.status,
       country: this.country,
       rangeKm: this.rangeKm,
-      maxPassengersEfficiency: this.maxPassengersEfficiency
     };
   }
 }
