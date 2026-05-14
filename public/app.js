@@ -10,6 +10,7 @@ const category = document.getElementById('category');
 const status = document.getElementById('status');
 const country = document.getElementById('country');
 const range = document.getElementById('range');
+const maxPassengers = document.getElementById('maxPassengers');
 
 let airplanes = [];
 let filteredAirplanes = [];
@@ -24,6 +25,7 @@ function renderDetails() {
     status.textContent = '';
     country.textContent = '';
     range.textContent = '';
+    maxPassengers.textContent = '';
     return;
   }
 
@@ -35,6 +37,7 @@ function renderDetails() {
   status.textContent = `Current State: ${item.currentState}`;
   country.textContent = `Country: ${item.country}`;
   range.textContent = `Range: ${item.rangeKm} km`;
+  maxPassengers.textContent = `Max Passengers Efficiency: ${item.maxPassengersEfficiency}`;
 
   [...nameList.children].forEach((li, idx) => {
     li.classList.toggle('active', idx === currentIndex);
