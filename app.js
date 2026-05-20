@@ -17,6 +17,34 @@ let airplanes = [];
 let filteredAirplanes = [];
 let currentIndex = 0;
 
+const countryFlags = {
+  Brazil: '🇧🇷',
+  Canada: '🇨🇦',
+  China: '🇨🇳',
+  Europe: '🇪🇺',
+  France: '🇫🇷',
+  'France/Italy': '🇫🇷🇮🇹',
+  'France/United Kingdom': '🇫🇷🇬🇧',
+  Germany: '🇩🇪',
+  India: '🇮🇳',
+  Italy: '🇮🇹',
+  Japan: '🇯🇵',
+  Netherlands: '🇳🇱',
+  Russia: '🇷🇺',
+  'South Korea': '🇰🇷',
+  'Soviet Union/Russia': '🇷🇺',
+  Sweden: '🇸🇪',
+  Switzerland: '🇨🇭',
+  Ukraine: '🇺🇦',
+  'United Kingdom': '🇬🇧',
+  'United States': '🇺🇸'
+};
+
+function countryWithFlag(countryName) {
+  const flag = countryFlags[countryName];
+  return flag ? `${countryName} ${flag}` : countryName;
+}
+
 function renderDetails() {
   if (!filteredAirplanes.length) {
     modelName.textContent = 'No airplane found';
@@ -37,7 +65,7 @@ function renderDetails() {
   year.textContent = `Year: ${item.year}`;
   category.textContent = `Civil/Military: ${item.civilOrMilitary}`;
   status.textContent = `Current State: ${item.currentState}`;
-  country.textContent = `Country: ${item.country}`;
+  country.textContent = `Country: ${countryWithFlag(item.country)}`;
   range.textContent = `Range: ${item.rangeKm} km`;
   autonomy.textContent = `Autonomy: ${item.rangeKm} km`;
   maxPassengers.textContent = `Max Passengers Efficiency: ${item.maxPassengersEfficiency}`;
