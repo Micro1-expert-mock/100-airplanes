@@ -1,0 +1,42 @@
+<!-- public/index.html -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>100 Airplanes</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Manrope:wght@400;600&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <main class="layout">
+      <aside class="sidebar">
+        <h1>100 Airplanes</h1>
+        <p class="subtitle">Browse and inspect aircraft</p>
+        <input id="searchInput" placeholder="Search model..." />
+        <ul id="nameList"></ul>
+      </aside>
+
+      <section class="detail">
+        <div class="detail-header">
+          <button id="prevBtn">Prev</button>
+          <button id="nextBtn">Next</button>
+        </div>
+
+        <h2 id="modelName"></h2>
+        <p id="make"></p>
+        <p id="year"></p>
+        <p id="category"></p>
+        <p id="status"></p>
+        <p id="country"></p>
+        <p id="range"></p>
+        <p id="autonomy"></p>
+        <p id="maxPassengers"></p>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
