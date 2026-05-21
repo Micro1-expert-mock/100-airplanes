@@ -11,6 +11,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Manrope:wght@400;600&display=swap" rel="stylesheet" />
   </head>
   <body>
+    <div class="auth-modal show" id="authModal">
+      <form class="auth-card" id="loginForm">
+        <h2>Login</h2>
+        <p class="auth-subtitle">Use account1/password1 through account5/password5</p>
+        <input id="usernameInput" placeholder="Username" required />
+        <input id="passwordInput" type="password" placeholder="Password" required />
+        <button type="submit">Sign In</button>
+        <p id="authError" class="auth-error"></p>
+      </form>
+    </div>
+
     <main class="layout">
       <aside class="sidebar">
         <h1>100 Airplanes</h1>
@@ -21,6 +32,8 @@
 
       <section class="detail">
         <div class="detail-header">
+          <span id="sessionUser"></span>
+          <button id="logoutBtn">Logout</button>
           <button id="prevBtn">Prev</button>
           <button id="nextBtn">Next</button>
         </div>
@@ -32,6 +45,8 @@
         <p id="status"></p>
         <p id="country"></p>
         <p id="range"></p>
+        <p id="autonomy"></p>
+        <p id="maxPassengers"></p>
       </section>
     </main>
 
