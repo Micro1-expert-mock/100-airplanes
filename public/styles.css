@@ -23,6 +23,53 @@ body {
     linear-gradient(140deg, var(--bg-1), var(--bg-2));
 }
 
+.auth-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+.auth-modal.show {
+  display: flex;
+}
+
+.auth-card {
+  width: min(360px, 90vw);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: rgba(6, 13, 24, 0.95);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 22px;
+}
+
+.auth-subtitle {
+  margin: 0 0 6px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.auth-card input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+}
+
+.auth-error {
+  min-height: 18px;
+  margin: 0;
+  color: #ff8f8f;
+  font-size: 0.9rem;
+}
+
 .layout {
   display: grid;
   grid-template-columns: 320px 1fr;
@@ -97,6 +144,12 @@ h2 {
   display: flex;
   gap: 10px;
   justify-content: flex-end;
+  align-items: center;
+}
+
+#sessionUser {
+  color: var(--muted);
+  margin-right: auto;
 }
 
 button {
