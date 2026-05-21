@@ -45,6 +45,36 @@ function countryWithFlag(countryName) {
   return flag ? `${countryName} ${flag}` : countryName;
 }
 
+function estimateCruiseSpeedKmh(item) {
+  const model = item.modelName.toLowerCase();
+
+  if (model.includes('ah-64') || model.includes('chinook') || model.includes('black hawk') || model.includes('mi-8') || model.includes('mi-26') || model.includes('aw101') || model.includes('dhruv')) {
+    return 260;
+  }
+
+  if (model.includes('cessna 172') || model.includes('dc-3') || model.includes('an-2') || model.includes('caravan') || model.includes('air tractor')) {
+    return 240;
+  }
+
+  if (model.includes('atr') || model.includes('dash 8') || model.includes('pc-12') || model.includes('islander')) {
+    return 500;
+  }
+
+  if (item.civilOrMilitary === 'Military') {
+    return 900;
+  }
+
+  return 840;
+}
+
+function formatAutonomyTime(item) {
+  const cruiseSpeedKmh = estimateCruiseSpeedKmh(item);
+  const totalMinutes = Math.max(1, Math.round((item.rangeKm / cruiseSpeedKmh) * 60));
+  const hours = Math.floor(totalMinutes / 60);
+  const minutes = totalMinutes % 60;
+  return `${hours}h ${minutes}m`;
+}
+
 function renderDetails() {
   if (!filteredAirplanes.length) {
     modelName.textContent = 'No airplane found';
@@ -67,7 +97,7 @@ function renderDetails() {
   status.textContent = `Current State: ${item.currentState}`;
   country.textContent = `Country: ${countryWithFlag(item.country)}`;
   range.textContent = `Range: ${item.rangeKm} km`;
-  autonomy.textContent = `Autonomy: ${item.rangeKm} km`;
+  autonomy.textContent = `Autonomy: ${formatAutonomyTime(item)}`;
   maxPassengers.textContent = `Max Passengers Efficiency: ${item.maxPassengersEfficiency}`;
 
   [...nameList.children].forEach((li, idx) => {
