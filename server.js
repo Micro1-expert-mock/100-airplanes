@@ -63,13 +63,12 @@ app.post('/api/logout', (req, res) => {
   });
 });
 
-app.get('/api/airplanes', (req, res) => {
-  if (!req.session?.user) {
-    return res.status(401).json({ error: 'Authentication required' });
-  }
+app.get('/api/airplanes', requireAuth, (req, res) => {
   res.json({ airplanes: airplaneRepository.getAll() });
 });
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`100 airplanes app running at http://localhost:${PORT}`);
 });
+
+module.exports = { app, server };
