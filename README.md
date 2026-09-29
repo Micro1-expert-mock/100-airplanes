@@ -21,6 +21,7 @@ A lightweight browser application to explore 100 popular civil and military airp
   * Year of Introduction & Country of Origin
   * Category (Civil/Military) & Current Operational State
   * Flight Range & Max Passenger Capacity (Efficiency Configuration)
+  * Long-Haul Label ("Reaches 10k km")
 
 ---
 
@@ -92,12 +93,21 @@ Returns the complete airplane collection used to populate the frontend interface
       "civilOrMilitary": "Civil",
       "currentState": "Active",
       "country": "United States",
-      "rangeKm": 5765,
+      "rangeKm": 3582,
+      "reaches10kKm": false,
       "maxPassengersEfficiency": 189
     }
   ]
 }
 ```
+
+---
+
+## 📏 Range Classification
+
+Each airplane carries a boolean label, **"Reaches 10k km"**, indicating whether its flight range is at least 10,000 km. It is computed in the data layer, exposed by the API as `reaches10kKm`, and shown in the detail view.
+
+**Current dataset compliance: 1 of 100 airplanes** reaches 10,000 km (the Boeing KC-135 Stratotanker).
 
 ---
 

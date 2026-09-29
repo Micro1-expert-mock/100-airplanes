@@ -17,6 +17,7 @@ const category = document.getElementById('category');
 const status = document.getElementById('status');
 const country = document.getElementById('country');
 const range = document.getElementById('range');
+const reaches10k = document.getElementById('reaches10k');
 const autonomy = document.getElementById('autonomy');
 const maxPassengers = document.getElementById('maxPassengers');
 
@@ -92,6 +93,7 @@ function renderDetails() {
     status.textContent = '';
     country.textContent = '';
     range.textContent = '';
+    reaches10k.textContent = '';
     autonomy.textContent = '';
     maxPassengers.textContent = '';
     return;
@@ -105,6 +107,7 @@ function renderDetails() {
   status.textContent = `Current State: ${item.currentState}`;
   country.textContent = `Country: ${countryWithFlag(item.country)}`;
   range.textContent = `Range: ${item.rangeKm} km`;
+  reaches10k.textContent = `Reaches 10k km: ${item.reaches10kKm ? 'Yes' : 'No'}`;
   autonomy.textContent = `Autonomy: ${formatAutonomyTime(item)}`;
   maxPassengers.textContent = `Max Passengers Efficiency: ${item.maxPassengersEfficiency}`;
 
