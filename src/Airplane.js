@@ -28,6 +28,7 @@ class Airplane {
       currentState: this.status,
       country: this.country,
       rangeKm: this.rangeKm,
+      reaches10kKm: this.rangeKm >= 10000,
       maxPassengersEfficiency: this.maxPassengersEfficiency,
     };
   }
